@@ -1,495 +1,107 @@
 import java.io.*;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 public class encryption extends LanguageGen{
-	private static String[] userInputArray2;
+	private static String[] outputArray;
 
 	public static void main(String[] args) {
-	//Declare variables
+//Declare variables
 	BufferedReader br = null;
 	FileReader fr = null;
 	String contentLine;
 	String userInput;
-	
-	
-	//Set up Scanner
+	String[] languageFiles = {"language/translation1.txt","language/translation2.txt","language/translation3.txt"
+			,"language/translation4.txt","language/translation5.txt","language/translation6.txt","language/translation7.txt"
+			,"language/translation8.txt","language/translation9.txt","language/translation10.txt"};
+	ArrayList<String> outputList = new ArrayList<String>();
+	ArrayList<String> inputList = new ArrayList<String>();
+//Set up Scanner
 	
 	Scanner keyboard = new Scanner(System.in);
 	
-	//Get message from user
+//Get message from user
 	
 	System.out.println("What message would you like to encrypt? \n");
 	userInput = keyboard.nextLine();
 	String[] userInputArray = userInput.split("(?!^)");
-	userInputArray2 = userInputArray;
-	//Create and Declare key
+//Initialize inputList	
+	for(int i = 0; i < userInputArray.length; i++) {
+		inputList.add(userInputArray[i]);
+	}
+//Create and Declare key
 	
 	KeyGen.CreateKey();	
 	String key = KeyGen.ReturnKey();
-	
-	System.out.println(key);
-	//Encrypt Message
-	
 	String[] key2 = key.split("(?!^)");
-
-	for(int i = 0; i < 5; i++) {
-		switch (key2[i]) {
-		case "0":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation1.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			break;
-		case "1":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation2.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "2":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation3.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "3":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation4.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "4":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation5.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "5":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation6.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "6":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation7.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "7":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation8.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "8":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation9.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case "9":
-			//System.out.println("Language " + key2[i]);
-			try {
-				fr = new FileReader("translation10.txt");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			br = new BufferedReader(fr);
-			try {
-				String[][] t_1 = new String[94][10];
-				contentLine = br.readLine();
-				//System.out.println(contentLine);
-				String[] content = contentLine.split("(?!^)");
-				int count = 0;
-				
-				for(int i2 = 0; i2 < 94; i2++) {
-					for(int j = 0; j < 10; j++) {
-						t_1[i2][j] = content[count++];
-					}
-			/*		System.out.println(t_1[i2][0] + t_1[i2][1] + t_1[i2][2] + t_1[i2][3] + t_1[i2][4] +
-									   t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8] + t_1[i2][9]);
-			*/		
-				}
-				
-				for(int u = 0; u < userInputArray.length; u++) {
-					for(int i2 = 0; i2 < 94; i2++) {
-						if(userInputArray[u].equals(t_1[i2][0])) {
-							userInputArray2[u] = userInputArray[u].replace(userInputArray[u], 
-								(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]));
-						}
-					}
-				}
-				
-				for(int o = 0; o < userInputArray2.length; o++) {
-					System.out.print(userInputArray2[o]);
-				}
-				
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		default:
-			break;
-		}	
+	int[] key3 = new int[key2.length];
+	for(int q = 0; q < key2.length; q++) {
+		key3 = Arrays.stream(key.split("(?!^)")).mapToInt(Integer::parseInt).toArray();  
 	}
-			
+//Encrypt Message
+	
+
+	for(int i = 0; i < key3.length; i++) {
+//Declare variables subject to change in encryption protocol
+		userInputArray = userInput.split("(?!^)");
+		try {
+//Decide Which language to use
+			fr = new FileReader(languageFiles[key3[i]]);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		br = new BufferedReader(fr);
+		try {
+//Initialize try statement variables
+			String[][] t_1 = new String[94][10];
+			contentLine = br.readLine();
+			String[] content = contentLine.split("(?!^)");
+			int count = 0;
+//Split file language into individual arrays in a 2-dimensional array
+			for(int i2 = 0; i2 < 94; i2++) {
+				for(int j = 0; j < 10; j++) {
+					t_1[i2][j] = content[count++];
+				}	
+			}
+			for(int u = 0; u < userInputArray.length; u++) {
+				for(int i2 = 0; i2 < 94; i2++) {
+					if(inputList.get(u) != null) {				
+						if (inputList.get(u).equals(t_1[i2][0])) {
+							outputList.add(t_1[i2][4] + t_1[i2][5] + t_1[i2][6] + t_1[i2][7] + t_1[i2][8]);
+							
+						}
+					}
+				}
+			}
+			for(int o = 0; o < outputList.size(); o++) {
+				System.out.print(outputList.get(o));
+			}	
+			System.out.println("\n");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//Reset userInput to outputList and break into array of string
+		if(userInput.isEmpty() == false) {
+			userInput = "";
+		} if(userInput.isEmpty()) {
+			for(int k = 0; k < outputList.size(); k++) {
+				userInput += outputList.get(k);
+			}
+		}
+		userInputArray = userInput.split("(?!^)");
+		inputList.clear();
+		for(int j = 0; j < userInputArray.length; j++) {
+			inputList.add(userInputArray[j]);
+			outputList.clear();
+		}
+//After encryption
+
+	}
+	System.out.println("\nTranslation Complete! Encrypted message up above...");		
+	System.out.println("Key is... " + key);
 	
 	
 	}
